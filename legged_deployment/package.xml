@@ -17,6 +17,7 @@
     <depend>elevation_mapping</depend>
     <depend>elevation_mapping_demos</depend>
     <depend>custom_description</depend>
+    <depend>teleop_twist_keyboard</depend>
 
     <depend>legged_gazebo</depend>
     <depend>realsense_gazebo_plugin</depend>

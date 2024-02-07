@@ -12,6 +12,7 @@ find_package(catkin REQUIRED
         elevation_mapping
         elevation_mapping_demos
         custom_description
+        teleop_twist_keyboard
 
         # hardware only
         legged_unitree_hw
