@@ -5,7 +5,7 @@
 
   <!-- rviz -->
   <group if="$(arg rviz)">
-    <include file="$(find fieldai_legged_perceptive_controllers)/launch/rviz.launch">
+    <include file="$(find legged_deployment)/launch/rviz.launch">
       <arg name="robot_type" value="$(arg robot_type)" />
     </include>
   </group>
@@ -33,7 +33,7 @@
   <!-- Elevation mapping node -->
   <node pkg="elevation_mapping" type="elevation_mapping" name="elevation_mapping" output="screen">
     <rosparam command="load"
-      file="$(find fieldai_legged_perceptive_controllers)/config/elevation_mapping_hardware.yaml" />
+      file="$(find legged_deployment)/config/elevation_mapping_hardware.yaml" />
     <rosparam command="load"
       file="$(find elevation_mapping_demos)/config/postprocessing/postprocessor_pipeline.yaml" />
   </node>

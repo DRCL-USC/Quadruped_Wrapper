@@ -3,16 +3,16 @@ windows:
   - layout: tiled
     panes:
       - shell_command:
-        - roslaunch fieldai_legged_perceptive_description gazebo_world.launch wname:=stepping_stone gui:=true
+        - roslaunch custom_description gazebo_world.launch wname:=stepping_stone gui:=true
       - shell_command:
         - sleep 5
-        - roslaunch fieldai_legged_perceptive_controllers load_controller.launch
+        - roslaunch legged_deployment load_controller.launch
       - shell_command:
         - sleep 8
-        - rosrun fieldai_legged_perceptive_controllers controller_client_node perceptive_controller start
+        - rosrun legged_deployment controller_client_node perceptive_controller start
       - shell_command:
         - sleep 10
-        - roslaunch fieldai_legged_perceptive_controllers elevation_mapping.launch rviz:=true
+        - roslaunch legged_deployment elevation_mapping.launch rviz:=true
       - shell_command:
         - sleep 12
         - rosrun teleop_twist_keyboard teleop_twist_keyboard.py

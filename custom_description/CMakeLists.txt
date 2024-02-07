@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(fieldai_legged_perceptive_description)
+project(custom_description)
 
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED

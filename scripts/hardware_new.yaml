@@ -3,18 +3,18 @@ windows:
   - layout: tiled
     panes:
       - shell_command:
-        - roslaunch fieldai_legged_perceptive_description unitree_hw.launch
+        - roslaunch custom_description unitree_hw.launch
       - shell_command:
         - sleep 5
-        - roslaunch fieldai_legged_perceptive_controllers load_controller.launch
+        - roslaunch legged_deployment load_controller.launch
       - shell_command:
         - sleep 8
-        - rosrun fieldai_legged_perceptive_controllers controller_client_node controllers/perceptive_controller start
+        - rosrun legged_deployment controller_client_node controllers/perceptive_controller start
         # - cd src/fieldai_interface/scripts
         # - bash perceptive_controller.sh
       # - shell_command:
       #   - sleep 10
-      #   - roslaunch fieldai_legged_perceptive_controllers elevation_mapping.launch rviz:=false
+      #   - roslaunch legged_deployment elevation_mapping.launch rviz:=false
       - shell_command:
         - sleep 12
         - rosrun teleop_twist_keyboard teleop_twist_keyboard.py

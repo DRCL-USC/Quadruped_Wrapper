@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-    <name>fieldai_legged_perceptive_description</name>
+    <name>custom_description</name>
     <version>0.0.0</version>
     <description>Unitree robot description files</description>
     <maintainer email="somboles@usc.edu">Mohsen Sombolestan</maintainer>

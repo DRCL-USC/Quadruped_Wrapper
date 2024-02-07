@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-    <name>fieldai_legged_perceptive_controllers</name>
+    <name>legged_deployment</name>
     <version>0.0.0</version>
-    <description>fieldai_legged_perceptive_controllers</description>
+    <description>legged_deployment</description>
     <maintainer email="somboles@usc.edu">Mohsen Sombolestan</maintainer>
     <license>TODO</license>
 
@@ -16,8 +16,5 @@
     <depend>legged_controllers</depend>
     <depend>grid_map_ros</depend>
     <depend>ocs2_legged_robot_ros</depend>
-
-    <export>
-        <controller_interface plugin="${prefix}/legged_perceptive_controllers_plugins.xml"/>
-    </export>
+    
 </package>

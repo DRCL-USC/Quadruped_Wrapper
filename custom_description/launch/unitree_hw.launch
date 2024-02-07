@@ -2,13 +2,13 @@
     <arg name="robot_type" default="$(env ROBOT_TYPE)" doc="Robot type: [a1, aliengo, go1, laikago]"/>
     <arg name="manager" default="point_cloud_manager"/>
 
-    <param name="legged_robot_description" command="$(find xacro)/xacro $(find fieldai_legged_perceptive_description)/urdf/robot.xacro
+    <param name="legged_robot_description" command="$(find xacro)/xacro $(find custom_description)/urdf/robot.xacro
        robot_type:=$(arg robot_type)
     "/>
     <node name="generate_urdf" pkg="legged_common" type="generate_urdf.sh" output="screen"
-          args="$(find fieldai_legged_perceptive_description)/urdf/robot.xacro $(arg robot_type)"/>
+          args="$(find custom_description)/urdf/robot.xacro $(arg robot_type)"/>
 
-    <rosparam file="$(find fieldai_legged_perceptive_controllers)/config/$(arg robot_type).yaml" command="load"/>
+    <rosparam file="$(find legged_deployment)/config/$(arg robot_type).yaml" command="load"/>
 
     <param name="robot_type" value="$(arg robot_type)"/>
     <node name="legged_unitree_hw" pkg="legged_unitree_hw" type="legged_unitree_hw_3_3_1" respawn="false"

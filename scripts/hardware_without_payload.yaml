@@ -9,8 +9,7 @@ windows:
         - roslaunch legged_controllers load_controller.launch cheater:=false
       - shell_command:
         - sleep 10
-        - cd src/scripts
-        - bash legged_controller.sh
+        - rosrun legged_deployment controller_client_node legged_controller start
       - shell_command:
         - sleep 11
         - rosrun teleop_twist_keyboard teleop_twist_keyboard.py

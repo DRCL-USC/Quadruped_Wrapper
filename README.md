@@ -1,4 +1,4 @@
-# Field AI interface for legged perceptive Control
+# Legged Deployment
 
 
 ## Dependency

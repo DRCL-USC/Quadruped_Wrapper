@@ -9,8 +9,8 @@
     <xacro:include filename="$(find legged_unitree_description)/urdf/common/gazebo.xacro"/>
     <xacro:include filename="$(find legged_unitree_description)/urdf/common/imu.xacro"/>
     <xacro:include filename="$(find legged_unitree_description)/urdf/$(arg robot_type)/const.xacro"/>
-    <xacro:include filename="$(find fieldai_legged_perceptive_description)/urdf/sensor_d435.xacro"/>
-    <xacro:include filename="$(find fieldai_legged_perceptive_description)/urdf/sensor_t265.xacro"/>
+    <xacro:include filename="$(find custom_description)/urdf/sensor_d435.xacro"/>
+    <xacro:include filename="$(find custom_description)/urdf/sensor_t265.xacro"/>
 
     <xacro:property name="mesh_path" value="package://legged_unitree_description/meshes/$(arg robot_type)"/>
 
@@ -76,7 +76,7 @@
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <!-- <mesh filename="package://fieldai_legged_perceptive_description/meshes/$(arg robot_type)/aliengo_payload.dae" scale="1 1 1"/> -->
+                <!-- <mesh filename="package://custom_description/meshes/$(arg robot_type)/aliengo_payload.dae" scale="1 1 1"/> -->
                 <box size="0.2 0.2 0.2"/>
             </geometry>
         </visual>
