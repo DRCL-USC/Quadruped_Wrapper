@@ -5,12 +5,20 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(catkin REQUIRED
         COMPONENTS
-        roscpp
-        controller_interface
-        legged_perceptive_interface
         legged_controllers
-        grid_map_ros
-        ocs2_legged_robot_ros
+        legged_unitree_description
+        legged_perceptive_description
+        legged_perceptive_controllers
+        elevation_mapping
+        elevation_mapping_demos
+        custom_description
+
+        # hardware only
+        legged_unitree_hw
+
+        # Simulation only
+        legged_gazebo
+        realsense_gazebo_plugin
         )
 
 catkin_package(
@@ -19,12 +27,20 @@ catkin_package(
         LIBRARIES
         ${PROJECT_NAME}
         CATKIN_DEPENDS
-        roscpp
-        controller_interface
-        legged_perceptive_interface
         legged_controllers
-        grid_map_ros
-        ocs2_legged_robot_ros
+        legged_unitree_description
+        legged_perceptive_description
+        legged_perceptive_controllers
+        elevation_mapping
+        elevation_mapping_demos
+        custom_description
+
+        # hardware only
+        legged_unitree_hw
+
+        # Simulation only
+        legged_gazebo
+        realsense_gazebo_plugin
 )
 
 ###########
