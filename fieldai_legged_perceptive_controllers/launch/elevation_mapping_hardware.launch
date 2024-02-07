@@ -1,0 +1,48 @@
+<launch>
+  <arg name="manager" default="point_cloud_manager" />
+  <arg name="robot_type" default="$(env ROBOT_TYPE)" doc="Robot type: [a1, aliengo, go1, laikago]" />
+  <arg name="rviz" default="false" />
+
+  <!-- rviz -->
+  <group if="$(arg rviz)">
+    <include file="$(find fieldai_legged_perceptive_controllers)/launch/rviz.launch">
+      <arg name="robot_type" value="$(arg robot_type)" />
+    </include>
+  </group>
+
+  <!-- <node pkg="elevation_mapping_demos" type="tf_to_pose_publisher.py" name="aliengo_pose_publisher">
+    <param name="from_frame" type="string" value="alien2/odom" />
+    <param name="to_frame" type="string" value="alien2/base_link" />
+  </node> -->
+
+  <!-- Run a passthrough filter to down-sample the sensor point cloud.-->
+  <!-- <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen" />
+  <node pkg="nodelet" type="nodelet" name="voxel_grid" args="load pcl/VoxelGrid pcl_manager"
+    output="screen">
+    <remap from="~input" to="/alien2/camera_front/depth/color/points" />
+    <remap from="~output" to="/camera_front/depth/points_downsampled" />
+    <rosparam>
+      filter_field_name: z
+      filter_limit_min: 0.01
+      filter_limit_max: 6.0
+      filter_limit_negative: False
+      leaf_size: 0.05
+    </rosparam>
+  </node> -->
+
+  <!-- Elevation mapping node -->
+  <node pkg="elevation_mapping" type="elevation_mapping" name="elevation_mapping" output="screen">
+    <rosparam command="load"
+      file="$(find fieldai_legged_perceptive_controllers)/config/elevation_mapping_hardware.yaml" />
+    <rosparam command="load"
+      file="$(find elevation_mapping_demos)/config/postprocessing/postprocessor_pipeline.yaml" />
+  </node>
+
+  <include file="$(find convex_plane_decomposition_ros)/launch/convex_plane_decomposition.launch">
+    <arg name="parameter_file"
+      value="$(find legged_perceptive_controllers)/config/convex_plane_decomposition.yaml" />
+  </include>
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="odom_tf_publisher"
+          args="0 0 0 0 0 0 1 map odom"/>
+</launch>
