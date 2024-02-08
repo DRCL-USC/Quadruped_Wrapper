@@ -57,7 +57,7 @@
     </xacro:leg>
     
 
-    <xacro:sensor_t265 name="tracking_camera" topics_ns="tracking_camera" parent="base">
+    <xacro:sensor_t265 name="tracking_camera" topics_ns="$(arg ns)/tracking_camera" parent="base">
          <origin xyz="0.35 0.0 0.0" rpy="0.0 -0.05 -0.0"/>
     </xacro:sensor_t265>
 
@@ -81,7 +81,7 @@
         </visual>
     </link>
 
-    <xacro:sensor_d435 name="front_camera" topics_ns="front_camera" parent="base">
+    <xacro:sensor_d435 name="front_camera" topics_ns="$(arg ns)/front_camera" parent="base">
            <origin xyz="0.16 0.048 0.30" rpy="0 0.54359877559 0"/>
     </xacro:sensor_d435>
 
