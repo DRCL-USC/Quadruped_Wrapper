@@ -18,9 +18,7 @@ int main(int argc, char* argv[]) {
 
   GaitPublisher gaitCommand(nodeHandle, gaitCommandFile, robotName, true);
 
-  while (ros::ok() && ros::master::check()) {
-    ros::spin();
-  }
+  ros::spin();
 
   // Successful exit
   return 0;

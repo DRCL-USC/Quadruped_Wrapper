@@ -57,5 +57,5 @@ git clone git@github.com:pal-robotics/realsense_gazebo_plugin.git
 ```
 ### Build
 ```
-catkin buid legged_deployment 
+catkin build legged_deployment 
 ```

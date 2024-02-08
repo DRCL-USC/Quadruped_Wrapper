@@ -18,7 +18,7 @@ find_package(catkin REQUIRED
         legged_unitree_hw
 
         # Simulation only
-        legged_gazebo
+        custom_gazebo
         realsense_gazebo_plugin
         )
 
@@ -40,7 +40,7 @@ catkin_package(
         legged_unitree_hw
 
         # Simulation only
-        legged_gazebo
+        custom_gazebo
         realsense_gazebo_plugin
 )
 

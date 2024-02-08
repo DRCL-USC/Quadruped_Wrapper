@@ -68,7 +68,7 @@ speedBindings={
 modeBindings={
         '1':("SIT",),
         '2':("STAND",),
-        '3':("PASSIVE",),
+        '3':("TROTTING",),
     }
 
 

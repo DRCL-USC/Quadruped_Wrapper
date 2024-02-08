@@ -19,7 +19,7 @@
     <depend>custom_description</depend>
     <depend>teleop_twist_keyboard</depend>
 
-    <depend>legged_gazebo</depend>
+    <depend>custom_gazebo</depend>
     <depend>realsense_gazebo_plugin</depend>
 
     <depend>legged_unitree_hw</depend>

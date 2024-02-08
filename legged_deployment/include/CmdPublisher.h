@@ -66,7 +66,7 @@ class CmdPublisher final {
         return;
       }
 
-      if (mode == "PASSIVE") {
+      if (mode == "TROTTING") {
         vector_t cmdVel = vector_t::Zero(4); // x,y, yaw
         cmdVel[0] = msg->linear.x; 
         cmdVel[1] = msg->linear.y;
@@ -76,22 +76,16 @@ class CmdPublisher final {
         const auto trajectories =
             cmdVelToTargetTrajectories_(cmdVel, latestObservation_);
         CmdPublisher_->publishTargetTrajectories(trajectories);
-        ROS_INFO("cmd_vel callback is running");
       }
     };
 
     auto modeCallback = [this](const std_msgs::String::ConstPtr& msg) {
-      ROS_INFO_THROTTLE(5, "mode callback is running");
+
       mode = msg->data;
-      // if (mode == "STAND" && high_cmd.mode == 6) {
-      //   high_cmd.mode = 1;
-      //   return;
-      // }
-      // Sport mode setting
       const vector_t currentPose = latestObservation_.state.segment<6>(6);
       vector_t cmdGoal = vector_t::Zero(6);
       std_msgs::String gait;
-      if (mode == "PASSIVE") {
+      if (mode == "TROTTING") {
         gait.data = "trot";
         gaitpublisher.publish(gait);
 
@@ -119,7 +113,7 @@ class CmdPublisher final {
       }
     };
 
-    goalSub_ = nh.subscribe<geometry_msgs::PoseStamped>("/move_base_simple/goal", 1, goalCallback);
+    goalSub_ = nh.subscribe<geometry_msgs::PoseStamped>("move_base_simple/goal", 1, goalCallback);
     cmdVelSub_ = nh.subscribe<geometry_msgs::Twist>(
         "cmd_vel", 1, cmdVelCallback);
     gaitpublisher = nh.advertise<std_msgs::String>("gait", 1, true);
