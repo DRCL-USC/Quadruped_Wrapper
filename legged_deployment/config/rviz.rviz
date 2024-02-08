@@ -311,7 +311,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        unitree_imu:
+        base_imu:
           Alpha: 1
           Show Axes: false
           Show Trail: false
