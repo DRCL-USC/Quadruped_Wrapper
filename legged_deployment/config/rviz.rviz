@@ -6,7 +6,6 @@ Panels:
       Expanded:
         - /TF1/Frames1
         - /Elevation Map1
-        - /RobotModel1
       Splitter Ratio: 0.5
     Tree Height: 727
   - Class: rviz/Selection
@@ -60,12 +59,88 @@ Visualization Manager:
       Reference Frame: odom
       Value: true
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Filter (blacklist): ""
       Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
         All Enabled: true
+        LF_FOOT:
+          Value: true
+        LF_calf:
+          Value: true
+        LF_hip:
+          Value: true
+        LF_thigh:
+          Value: true
+        LH_FOOT:
+          Value: true
+        LH_calf:
+          Value: true
+        LH_hip:
+          Value: true
+        LH_thigh:
+          Value: true
+        RF_FOOT:
+          Value: true
+        RF_calf:
+          Value: true
+        RF_hip:
+          Value: true
+        RF_thigh:
+          Value: true
+        RH_FOOT:
+          Value: true
+        RH_calf:
+          Value: true
+        RH_hip:
+          Value: true
+        RH_thigh:
+          Value: true
+        base:
+          Value: true
+        base_imu:
+          Value: true
+        front_camera_bottom_screw_frame:
+          Value: true
+        front_camera_color_frame:
+          Value: true
+        front_camera_color_optical_frame:
+          Value: true
+        front_camera_depth_frame:
+          Value: true
+        front_camera_depth_optical_frame:
+          Value: true
+        front_camera_left_ir_frame:
+          Value: true
+        front_camera_left_ir_optical_frame:
+          Value: true
+        front_camera_link:
+          Value: true
+        front_camera_right_ir_frame:
+          Value: true
+        front_camera_right_ir_optical_frame:
+          Value: true
+        odom:
+          Value: true
+        payload:
+          Value: true
+        tracking_camera_accel_optical_frame:
+          Value: true
+        tracking_camera_fisheye1_optical_frame:
+          Value: true
+        tracking_camera_fisheye1_rgb_frame:
+          Value: true
+        tracking_camera_fisheye2_optical_frame:
+          Value: true
+        tracking_camera_fisheye2_rgb_frame:
+          Value: true
+        tracking_camera_gyro_optical_frame:
+          Value: true
+        tracking_camera_link:
+          Value: true
+        tracking_camera_pose_frame:
+          Value: true
       Marker Alpha: 1
       Marker Scale: 0.30000001192092896
       Name: TF
@@ -73,9 +148,59 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
-        {}
+        odom:
+          base:
+            LF_hip:
+              LF_thigh:
+                LF_calf:
+                  LF_FOOT:
+                    {}
+            LH_hip:
+              LH_thigh:
+                LH_calf:
+                  LH_FOOT:
+                    {}
+            RF_hip:
+              RF_thigh:
+                RF_calf:
+                  RF_FOOT:
+                    {}
+            RH_hip:
+              RH_thigh:
+                RH_calf:
+                  RH_FOOT:
+                    {}
+            base_imu:
+              {}
+            front_camera_bottom_screw_frame:
+              front_camera_link:
+                front_camera_depth_frame:
+                  front_camera_color_frame:
+                    front_camera_color_optical_frame:
+                      {}
+                  front_camera_depth_optical_frame:
+                    {}
+                  front_camera_left_ir_frame:
+                    front_camera_left_ir_optical_frame:
+                      {}
+                  front_camera_right_ir_frame:
+                    front_camera_right_ir_optical_frame:
+                      {}
+            payload:
+              {}
+            tracking_camera_pose_frame:
+              tracking_camera_link:
+                tracking_camera_fisheye1_rgb_frame:
+                  tracking_camera_fisheye1_optical_frame:
+                    {}
+                tracking_camera_fisheye2_rgb_frame:
+                  tracking_camera_fisheye2_optical_frame:
+                    {}
+                tracking_camera_gyro_optical_frame:
+                  tracking_camera_accel_optical_frame:
+                    {}
       Update Interval: 0
-      Value: false
+      Value: true
     - Alpha: 0.5
       Autocompute Intensity Bounds: false
       Class: grid_map_rviz_plugin/GridMap
@@ -100,44 +225,6 @@ Visualization Manager:
       Unreliable: false
       Use ColorMap: true
       Value: true
-    - Alpha: 1
-      Autocompute Intensity Bounds: false
-      Autocompute Value Bounds:
-        Max Value: 0.2236589938402176
-        Min Value: -1.455340027809143
-        Value: true
-      Axis: Z
-      Channel Name: rgb
-      Class: rviz/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: AxisColor
-      Decay Time: 0
-      Enabled: false
-      Invert Rainbow: true
-      Max Color: 255; 0; 0
-      Max Intensity: 9.999999747378752e-05
-      Min Color: 0; 0; 255
-      Min Intensity: -1.9999999494757503e-05
-      Name: Elevation Map Raw
-      Position Transformer: XYZ
-      Queue Size: 0
-      Selectable: false
-      Size (Pixels): 3
-      Size (m): 0.03999999910593033
-      Style: Boxes
-      Topic: /elevation_map_raw_visualization/elevation_cloud
-      Unreliable: false
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: false
-    - Class: rviz/Marker
-      Enabled: false
-      Marker Topic: /elevation_map_raw_visualization/map_region
-      Name: Elevation Map Region
-      Namespaces:
-        {}
-      Queue Size: 100
-      Value: false
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
@@ -233,52 +320,57 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        base_imu:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_camera_bottom_screw_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        front_camera_color_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        front_camera_color_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        front_camera_depth_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        front_camera_depth_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        front_camera_left_ir_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        front_camera_left_ir_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        front_camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_camera_right_ir_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        front_camera_right_ir_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         payload:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        rs_front_bottom_screw_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rs_front_color_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rs_front_color_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rs_front_depth_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rs_front_depth_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rs_front_left_ir_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rs_front_left_ir_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rs_front_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rs_front_right_ir_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rs_front_right_ir_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         tracking_camera_accel_optical_frame:
           Alpha: 1
           Show Axes: false
@@ -311,34 +403,12 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        base_imu:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
       Name: RobotModel
       Robot Description: legged_robot_description
       TF Prefix: ""
       Update Interval: 0
       Value: true
       Visual Enabled: true
-    - Class: rviz/TF
-      Enabled: false
-      Filter (blacklist): ""
-      Filter (whitelist): ""
-      Frame Timeout: 15
-      Frames:
-        All Enabled: false
-      Marker Alpha: 1
-      Marker Scale: 1
-      Name: TF
-      Show Arrows: true
-      Show Axes: false
-      Show Names: false
-      Tree:
-        {}
-      Update Interval: 0
-      Value: false
     - Class: rviz/MarkerArray
       Enabled: true
       Marker Topic: legged_robot/optimizedStateTrajectory
@@ -346,7 +416,6 @@ Visualization Manager:
       Namespaces:
         CoM Trajectory: true
         EE Trajectories: true
-        Future footholds: true
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
@@ -371,14 +440,6 @@ Visualization Manager:
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
-      Enabled: false
-      Marker Topic: /distance_markers
-      Name: SelfCollision
-      Namespaces:
-        {}
-      Queue Size: 100
-      Value: false
-    - Class: rviz/MarkerArray
       Enabled: true
       Marker Topic: convex_plane_decomposition_ros/boundaries
       Name: MarkerArray
@@ -386,14 +447,6 @@ Visualization Manager:
         "": true
       Queue Size: 100
       Value: true
-    - Class: rviz/MarkerArray
-      Enabled: false
-      Marker Topic: /sphere_markers
-      Name: MarkerArray
-      Namespaces:
-        {}
-      Queue Size: 100
-      Value: false
     - Class: rviz/Group
       Displays:
         - Class: rviz/Group
@@ -442,30 +495,6 @@ Visualization Manager:
           Value: true
       Enabled: true
       Name: Target Trajectories
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Class: grid_map_rviz_plugin/GridMap
-      Color: 200; 200; 200
-      Color Layer: elevation
-      Color Transformer: GridMapLayer
-      ColorMap: default
-      Enabled: true
-      Grid Cell Decimation: 1
-      Grid Line Thickness: 0.10000000149011612
-      Height Layer: elevation
-      Height Transformer: GridMapLayer
-      History Length: 1
-      Invert ColorMap: false
-      Max Color: 255; 255; 255
-      Max Intensity: 10
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: GridMap
-      Show Grid Lines: true
-      Topic: /raisim_heightmap
-      Unreliable: false
-      Use ColorMap: true
-      Value: true
   Enabled: true
   Global Options:
     Background Color: 238; 238; 238
