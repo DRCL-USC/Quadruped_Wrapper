@@ -96,7 +96,7 @@ Visualization Manager:
       Min Intensity: 0
       Name: Elevation Map
       Show Grid Lines: true
-      Topic: /elevation_mapping/elevation_map
+      Topic: elevation_mapping/elevation_map
       Unreliable: false
       Use ColorMap: true
       Value: true
@@ -341,7 +341,7 @@ Visualization Manager:
       Value: false
     - Class: rviz/MarkerArray
       Enabled: true
-      Marker Topic: /legged_robot/optimizedStateTrajectory
+      Marker Topic: legged_robot/optimizedStateTrajectory
       Name: Optimized State Trajectory
       Namespaces:
         CoM Trajectory: true
@@ -351,7 +351,7 @@ Visualization Manager:
       Value: true
     - Class: rviz/MarkerArray
       Enabled: true
-      Marker Topic: /legged_robot/currentState
+      Marker Topic: legged_robot/currentState
       Name: Current State
       Namespaces:
         Center of Pressure: true
@@ -362,7 +362,7 @@ Visualization Manager:
       Value: true
     - Class: rviz/MarkerArray
       Enabled: true
-      Marker Topic: /foot_placement
+      Marker Topic: foot_placement
       Name: FootPlacement
       Namespaces:
         Convex Regions: true
@@ -380,7 +380,7 @@ Visualization Manager:
       Value: false
     - Class: rviz/MarkerArray
       Enabled: true
-      Marker Topic: /convex_plane_decomposition_ros/boundaries
+      Marker Topic: convex_plane_decomposition_ros/boundaries
       Name: MarkerArray
       Namespaces:
         "": true
@@ -400,7 +400,7 @@ Visualization Manager:
           Displays:
             - Class: rviz/Marker
               Enabled: true
-              Marker Topic: /legged_robot/desiredFeetTrajectory/LF
+              Marker Topic: legged_robot/desiredFeetTrajectory/LF
               Name: Marker
               Namespaces:
                 {}
@@ -408,7 +408,7 @@ Visualization Manager:
               Value: true
             - Class: rviz/Marker
               Enabled: true
-              Marker Topic: /legged_robot/desiredFeetTrajectory/LH
+              Marker Topic: legged_robot/desiredFeetTrajectory/LH
               Name: Marker
               Namespaces:
                 {}
@@ -416,7 +416,7 @@ Visualization Manager:
               Value: true
             - Class: rviz/Marker
               Enabled: true
-              Marker Topic: /legged_robot/desiredFeetTrajectory/RF
+              Marker Topic: legged_robot/desiredFeetTrajectory/RF
               Name: Marker
               Namespaces:
                 {}
@@ -424,7 +424,7 @@ Visualization Manager:
               Value: true
             - Class: rviz/Marker
               Enabled: true
-              Marker Topic: /legged_robot/desiredFeetTrajectory/RH
+              Marker Topic: legged_robot/desiredFeetTrajectory/RH
               Name: Marker
               Namespaces:
                 {}
@@ -434,7 +434,7 @@ Visualization Manager:
           Name: Target Feet Trajectories
         - Class: rviz/Marker
           Enabled: true
-          Marker Topic: /legged_robot/desiredBaseTrajectory
+          Marker Topic: legged_robot/desiredBaseTrajectory
           Name: Target Base Trajectory
           Namespaces:
             "": true
@@ -480,14 +480,14 @@ Visualization Manager:
     - Class: rviz/Measure
     - Class: rviz/SetInitialPose
       Theta std deviation: 0.2617993950843811
-      Topic: /initialpose
+      Topic: initialpose
       X std deviation: 0.5
       Y std deviation: 0.5
     - Class: rviz/SetGoal
-      Topic: /move_base_simple/goal
+      Topic: move_base_simple/goal
     - Class: rviz/PublishPoint
       Single click: true
-      Topic: /clicked_point
+      Topic: clicked_point
   Value: true
   Views:
     Current:
