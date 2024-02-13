@@ -1,7 +1,7 @@
 #include <ros/init.h>
 #include <ros/package.h>
 
-#include "GaitPublisher.h"
+#include "legged_deployment/GaitPublisher.h"
 
 using namespace legged;
 

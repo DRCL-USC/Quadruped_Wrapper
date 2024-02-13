@@ -1,5 +1,5 @@
 
-#include "CmdPublisher.h"
+#include "legged_deployment/CmdPublisher.h"
 
 #include <ocs2_core/Types.h>
 #include <ocs2_core/misc/LoadData.h>

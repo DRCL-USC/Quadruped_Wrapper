@@ -1,4 +1,4 @@
-#include "GaitPublisher.h"
+#include "legged_deployment/GaitPublisher.h"
 
 #include <algorithm>
 
