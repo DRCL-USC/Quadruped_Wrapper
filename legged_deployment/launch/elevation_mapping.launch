@@ -10,11 +10,6 @@
     </include>
   </group>
 
-  <node pkg="elevation_mapping_demos" type="tf_to_pose_publisher.py" name="aliengo_pose_publisher">
-    <param name="from_frame" type="string" value="odom" />
-    <param name="to_frame" type="string" value="base" />
-  </node>
-
   <!-- Elevation mapping node -->
   <node pkg="elevation_mapping" type="elevation_mapping" name="elevation_mapping" output="screen">
     <rosparam command="load"
