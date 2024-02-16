@@ -4,11 +4,11 @@
   <arg name="rviz" default="false" />
 
   <!-- rviz -->
-  <group if="$(arg rviz)">
+  <!-- <group if="$(arg rviz)">
     <include file="$(find legged_deployment)/launch/rviz.launch">
       <arg name="robot_type" value="$(arg robot_type)" />
     </include>
-  </group>
+  </group> -->
 
   <!-- <node pkg="elevation_mapping_demos" type="tf_to_pose_publisher.py" name="aliengo_pose_publisher">
     <param name="from_frame" type="string" value="alien2/odom" />

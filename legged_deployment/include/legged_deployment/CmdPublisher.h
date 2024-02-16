@@ -35,30 +35,30 @@ class CmdPublisher final {
     observationSub_ = nh.subscribe<ocs2_msgs::mpc_observation>(topicPrefix + "_mpc_observation", 1, observationCallback);
 
     // goal subscriber
-    auto goalCallback = [this](const geometry_msgs::PoseStamped::ConstPtr& msg) {
-      if (latestObservation_.time == 0.0) {
-        return;
-      }
-      geometry_msgs::PoseStamped pose = *msg;
-      try {
-        buffer_.transform(pose, pose, "odom", ros::Duration(0.2));
-      } catch (tf2::TransformException& ex) {
-        ROS_WARN("Failure %s\n", ex.what());
-        return;
-      }
+    // auto goalCallback = [this](const geometry_msgs::PoseStamped::ConstPtr& msg) {
+    //   if (latestObservation_.time == 0.0) {
+    //     return;
+    //   }
+    //   geometry_msgs::PoseStamped pose = *msg;
+    //   try {
+    //     buffer_.transform(pose, pose, "odom", ros::Duration(0.2));
+    //   } catch (tf2::TransformException& ex) {
+    //     ROS_WARN("Failure %s\n", ex.what());
+    //     return;
+    //   }
 
-      vector_t cmdGoal = vector_t::Zero(6);
-      cmdGoal[0] = pose.pose.position.x;
-      cmdGoal[1] = pose.pose.position.y;
-      cmdGoal[2] = pose.pose.position.z;
-      Eigen::Quaternion<scalar_t> q(pose.pose.orientation.w, pose.pose.orientation.x, pose.pose.orientation.y, pose.pose.orientation.z);
-      cmdGoal[3] = q.toRotationMatrix().eulerAngles(0, 1, 2).z();
-      cmdGoal[4] = q.toRotationMatrix().eulerAngles(0, 1, 2).y();
-      cmdGoal[5] = q.toRotationMatrix().eulerAngles(0, 1, 2).x();
+    //   vector_t cmdGoal = vector_t::Zero(6);
+    //   cmdGoal[0] = pose.pose.position.x;
+    //   cmdGoal[1] = pose.pose.position.y;
+    //   cmdGoal[2] = pose.pose.position.z;
+    //   Eigen::Quaternion<scalar_t> q(pose.pose.orientation.w, pose.pose.orientation.x, pose.pose.orientation.y, pose.pose.orientation.z);
+    //   cmdGoal[3] = q.toRotationMatrix().eulerAngles(0, 1, 2).z();
+    //   cmdGoal[4] = q.toRotationMatrix().eulerAngles(0, 1, 2).y();
+    //   cmdGoal[5] = q.toRotationMatrix().eulerAngles(0, 1, 2).x();
 
-      const auto trajectories = goalToTargetTrajectories_(cmdGoal, latestObservation_);
-      CmdPublisher_->publishTargetTrajectories(trajectories);
-    };
+    //   const auto trajectories = goalToTargetTrajectories_(cmdGoal, latestObservation_);
+    //   CmdPublisher_->publishTargetTrajectories(trajectories);
+    // };
 
     // cmd_vel subscriber
     auto cmdVelCallback = [this](const geometry_msgs::Twist::ConstPtr& msg) {
@@ -113,7 +113,7 @@ class CmdPublisher final {
       }
     };
 
-    goalSub_ = nh.subscribe<geometry_msgs::PoseStamped>("move_base_simple/goal", 1, goalCallback);
+    // goalSub_ = nh.subscribe<geometry_msgs::PoseStamped>("move_base_simple/goal", 1, goalCallback);
     cmdVelSub_ = nh.subscribe<geometry_msgs::Twist>(
         "cmd_vel", 1, cmdVelCallback);
     gaitpublisher = nh.advertise<std_msgs::String>("gait", 1, true);
