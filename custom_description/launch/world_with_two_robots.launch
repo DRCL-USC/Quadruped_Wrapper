@@ -1,0 +1,54 @@
+<launch>
+    <arg name="gui" default="true" />
+    <arg name="wname" default="empty_world" />
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name"
+            value="$(find custom_description)/launch/worlds/$(arg wname).world" />
+        <arg name="gui" value="$(arg gui)" />
+    </include>
+
+    <group ns="alien1">
+
+        <param name="legged_robot_description"
+            command="$(find xacro)/xacro $(find custom_description)/urdf/connected_robots/robot_with_prefix.xacro 
+                  ns:=alien1 robot_type:=aliengo sim:=true prefix:=alien1_" />
+
+        <node name="generate_urdf" pkg="multi_legged_controllers" type="generate_urdf.sh"
+            output="screen"
+            args="$(find custom_description)/urdf/connected_robots/robot_with_prefix.xacro aliengo alien1 alien1_ true" />
+
+        <rosparam file="$(find legged_gazebo)/config/default.yaml" command="load" />
+        <rosparam param="gazebo/imus/base_imu/frame_id" subst_value="True">alien1_base_imu</rosparam>
+        <rosparam param="gazebo/contacts" subst_value="True">[ "alien1_LF_FOOT", "alien1_LH_FOOT",
+            "alien1_RF_FOOT", "alien1_RH_FOOT" ]</rosparam>
+
+
+    </group>
+
+    <group ns="alien2">
+
+        <param name="legged_robot_description"
+            command="$(find xacro)/xacro $(find custom_description)/urdf/connected_robots/robot_with_prefix.xacro 
+            ns:=alien2 robot_type:=aliengo sim:=true prefix:=alien2_" />
+
+        <node name="generate_urdf" pkg="multi_legged_controllers" type="generate_urdf.sh"
+            output="screen"
+            args="$(find custom_description)/urdf/connected_robots/robot_with_prefix.xacro aliengo alien2 alien2_ true" />
+
+        <rosparam file="$(find legged_gazebo)/config/default.yaml" command="load" />
+        <rosparam param="gazebo/imus/base_imu/frame_id" subst_value="True">alien2_base_imu</rosparam>
+        <rosparam param="gazebo/contacts" subst_value="True">[ "alien2_LF_FOOT", "alien2_LH_FOOT",
+            "alien2_RF_FOOT", "alien2_RH_FOOT" ]</rosparam>
+
+    </group>
+
+    <param name="connected_legged_robot_description"
+        command="$(find xacro)/xacro $(find custom_description)/urdf/connected_robots/connected_robot.xacro sim:=true" />
+
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" clear_params="true"
+        args="-z 0.5 -x 0 -y 0 -param connected_legged_robot_description -urdf -model combined_model"
+        output="screen" />
+
+
+</launch>

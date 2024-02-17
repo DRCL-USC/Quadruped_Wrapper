@@ -85,6 +85,7 @@
            <origin xyz="0.16 0.048 0.30" rpy="0 0.54359877559 0"/>
     </xacro:sensor_d435>
 
+    <xacro:if value="$(arg sim)">
     <!-- ros_control plugin -->
     <gazebo>
         <plugin name="gazebo_ros_control" filename="libcustom_legged_hw_sim.so">
@@ -106,5 +107,6 @@
             <rpyOffsets>0 0 0</rpyOffsets>
         </plugin>
     </gazebo>    
+    </xacro:if>  
 
 </robot>
