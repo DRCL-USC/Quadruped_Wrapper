@@ -16,12 +16,6 @@
             value="package://legged_unitree_description/meshes/${robot_type}" />
 
         <link name="${prefix}base">
-            <visual>
-                <xacro:insert_block name="origin"/>
-            </visual>
-            <collision>
-                <xacro:insert_block name="origin"/>
-            </collision>
         </link>
 
         <joint name="${prefix}trunk_joint" type="fixed">
