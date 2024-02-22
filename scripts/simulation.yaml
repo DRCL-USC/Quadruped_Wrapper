@@ -21,7 +21,7 @@ windows:
       #   - cd bagfiles
       #   - rosbag record /convex_plane_decomposition_ros/planar_terrain /elevation_mapping/elevation_map /foot_placement /legged_robot/currentState /legged_robot/desiredBaseTrajectory /legged_robot/desiredFeetTrajectory/LF /legged_robot/desiredFeetTrajectory/LH /legged_robot/desiredFeetTrajectory/RF /legged_robot/desiredFeetTrajectory/RH /legged_robot/optimizedStateTrajectory /tf /tf_static  
     shell_command_before:
-      - cd ~/ocs2_ws/
+      - cd ~/Projects/ocs2_ws/
       - source devel/setup.bash 
       - export ROBOT_TYPE=aliengo
     window_name: Controller
