@@ -125,7 +125,7 @@
           <pose frame=''>-0.15 -0 0.3 0 -0 1.5708</pose>
         </collision>
         <visual name='stone_1_Visual_1'>
-          <pose frame=''>0.575 -0 0.3 0 -0 1.5708</pose>
+          <pose frame=''>0.45 -0 0.3 0 -0 1.5708</pose>
           <geometry>
             <box>
               <size>3 0.25 0.6</size>
@@ -148,10 +148,10 @@
               <size>3 0.25 0.6</size>
             </box>
           </geometry>
-          <pose frame=''>0.575 -0 0.3 0 -0 1.5708</pose>
+          <pose frame=''>0.45 -0 0.3 0 -0 1.5708</pose>
         </collision>
         <visual name='stone_1_Visual_2'>
-          <pose frame=''>1.2 0 0.3 0 -0 1.5708</pose>
+          <pose frame=''>1.0 0 0.3 0 -0 1.5708</pose>
           <geometry>
             <box>
               <size>3 0.4 0.6</size>
@@ -174,10 +174,10 @@
               <size>3 0.4 0.6</size>
             </box>
           </geometry>
-          <pose frame=''>1.2 0 0.3 0 -0 1.5708</pose>
+          <pose frame=''>1.0 0 0.3 0 -0 1.5708</pose>
         </collision>
         <visual name='stone_1_Visual_3'>
-          <pose frame=''>2 0 0.3 0 -0 1.5708</pose>
+          <pose frame=''>1.6 0 0.3 0 -0 1.5708</pose>
           <geometry>
             <box>
               <size>3 0.4 0.6</size>
@@ -200,12 +200,12 @@
               <size>3 0.4 0.6</size>
             </box>
           </geometry>
-          <pose frame=''>2 0 0.3 0 -0 1.5708</pose>
+          <pose frame=''>1.6 0 0.3 0 -0 1.5708</pose>
         </collision>
       </link>
 
       <link name="floor4">
-        <pose>10.5 0 0.3 0 0 0</pose>
+        <pose>9.9 0 0.3 0 0 0</pose>
         <collision name="floor3_collision">
           <geometry>
             <box>
