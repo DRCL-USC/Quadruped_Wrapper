@@ -62,21 +62,20 @@
     </xacro:sensor_t265>
 
     <joint name="payload_joint" type="fixed">
-        <parent link="base"/>
-        <child link="payload"/>
-        <origin rpy="0 0 0" xyz="0 0 0.09"/>
+        <parent link="base" />
+        <child link="payload" />
+        <origin rpy="0 0 0" xyz="0 0 0.13" />
     </joint>
 
     <link name="payload">
         <inertial>
-            <mass value="3"/>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-            <inertia ixx="0.025" ixy="0" ixz="0" iyy="0.021" iyz="0" izz="0.011"/>
+            <mass value="3" />
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <inertia ixx="0.025" ixy="0" ixz="0" iyy="0.021" iyz="0" izz="0.011" />
         </inertial>
         <visual>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://custom_description/meshes/$(arg robot_type)/aliengo_payload.dae" scale="1 1 1"/>
+                <box size=".2 .2 .2" />
             </geometry>
         </visual>
     </link>
