@@ -61,7 +61,7 @@
          <origin xyz="0.35 0.0 0.0" rpy="0.0 -0.05 -0.0"/>
     </xacro:sensor_t265>
 
-    <joint name="payload_joint" type="fixed">
+    <!-- <joint name="payload_joint" type="fixed">
         <parent link="base" />
         <child link="payload" />
         <origin rpy="0 0 0" xyz="0 0 0.13" />
@@ -78,7 +78,7 @@
                 <box size=".2 .2 .2" />
             </geometry>
         </visual>
-    </link>
+    </link> -->
 
     <xacro:sensor_d435 name="front_camera" topics_ns="$(arg ns)/front_camera" parent="base">
            <origin xyz="0.16 0.048 0.30" rpy="0 0.54359877559 0"/>
