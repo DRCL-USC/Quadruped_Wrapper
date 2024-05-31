@@ -66,7 +66,7 @@ class CmdPublisher final {
         return;
       }
 
-      if (mode == "TROTTING") {
+      if (mode == "TROTTING" || mode == "STATIC_WALKING") {
         vector_t cmdVel = vector_t::Zero(4); // x,y, yaw
         cmdVel[0] = msg->linear.x; 
         cmdVel[1] = msg->linear.y;
@@ -89,7 +89,12 @@ class CmdPublisher final {
         gait.data = "trot";
         gaitpublisher.publish(gait);
 
-      } else if (mode == "SIT") {
+      }
+      else if (mode == "STATIC_WALKING") {
+        gait.data = "static_walk";
+        gaitpublisher.publish(gait);
+      } 
+      else if (mode == "SIT") {
         gait.data = "stance";
         gaitpublisher.publish(gait);
         cmdGoal[0] = currentPose[0];
@@ -105,7 +110,7 @@ class CmdPublisher final {
         gaitpublisher.publish(gait);
         cmdGoal[0] = currentPose[0];
         cmdGoal[1] = currentPose[1];
-        cmdGoal[2] = 0.45;
+        cmdGoal[2] = 0.3;
         cmdGoal[3] = currentPose[3];
         const auto trajectories =
             goalToTargetTrajectories_(cmdGoal, latestObservation_);

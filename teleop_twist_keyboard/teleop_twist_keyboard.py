@@ -69,6 +69,7 @@ modeBindings={
         '1':("SIT",),
         '2':("STAND",),
         '3':("TROTTING",),
+        '4':("STATIC_WALKING",),
     }
 
 

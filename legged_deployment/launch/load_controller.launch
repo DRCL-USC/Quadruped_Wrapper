@@ -14,10 +14,12 @@
           output="screen" args="load
           controllers/perceptive_controller
           controllers/legged_controller
-          controllers/legged_cheater_controller
-          controllers/joint_state_controller
-"/>
+          controllers/legged_cheater_controller"/>
 
+    <node pkg="controller_manager" type="spawner" name="controller_spawner" respawn="false"
+            output="screen"
+            args="controllers/joint_state_controller" />
+                  
     <node pkg="legged_deployment" type="gait_command_node" name="gait_command_node"
           output="screen"/>
 

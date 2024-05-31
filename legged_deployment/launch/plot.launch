@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+
+<launch>
+    <node name="odom_plot" 
+          pkg="plotjuggler"
+          type="plotjuggler"
+          args="--layout $(find legged_deployment)/config/plots/odom.xml"
+    />
+
+    <node name="joint_plot" 
+          pkg="plotjuggler"
+          type="plotjuggler"
+          args="--layout $(find legged_deployment)/config/plots/joints_effort.xml"
+    />
+
+
+</launch>
