@@ -1,37 +1,23 @@
-session_name: controller
-
-environment:
-  DATA_PATH: /home/matteo/data/ros/mccarthy_floor2_06_09_2023_12_33/rosbag
-  TEST_NAME: test_controller
-  ROBOT_NAME: alpaca2
-  WORLD_NAME: MCCARTHY
-  DELAY: "110"
-  RATE: "1"
-
-options:
-  default-command: /bin/bash
-
-shell_command_before:
-  - export ROBOT_TYPE=aliengo
-  - export ROBOT_NAMESPACE=$ROBOT_NAME
-  - export SIMULATION=false
-  - export DATA_DIR=/data/ros/alpaca2_mccharty_sandiego_scripps_level2
-  - export ROS_LOG_DIR=$DATA_DIR/log
-  - export ROSCONSOLE_CONFIG_FILE=$(rospack find tmux_scripts)/config/rosconsole.config
-
+session_name: Controller
 windows:
-
-- window_name: controller
-  focus: true
-  layout: tiled
-  shell_command_before:
-    - rosparam set /use_sim_time true
-  panes:
-    - sleep 1; roslaunch custom_description unitree_hw.launch
-    - sleep 5; roslaunch legged_deployment load_controller.launch
-    - sleep 8; rosrun legged_deployment controller_client_node controllers/perceptive_controller start
-    - sleep 10; roslaunch legged_deployment elevation_mapping_hardware.launch rviz:=false
-    - sleep 10; roslaunch alien_control teleop.launch robot_namespace:=alien2
-    - sleep 10; roslaunch alien_control control.launch robot_namespace:=alien2 
-    # - sleep 12; rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/alien2/alien_driver/cmd_vel 
-
+  - layout: tiled
+    panes:
+      - shell_command:
+        - roslaunch custom_description unitree_hw.launch
+      - shell_command:
+        - sleep 5
+        - roslaunch legged_deployment load_controller.launch
+      - shell_command:
+        - sleep 10
+        - rosrun legged_deployment controller_client_node legged_controller start
+      - shell_command:
+        - sleep 11
+        - roslaunch legged_deployment elevation_mapping_hardware.launch rviz:=true
+      - shell_command:
+        - sleep 12
+        - rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+    shell_command_before:
+      - cd ~/Projects/ocs2_ws/
+      - source devel/setup.bash 
+      - export ROBOT_TYPE=aliengo
+    window_name: Controller

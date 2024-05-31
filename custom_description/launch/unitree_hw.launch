@@ -1,6 +1,5 @@
 <launch>
     <arg name="robot_type" default="$(env ROBOT_TYPE)" doc="Robot type: [a1, aliengo, go1, laikago]"/>
-    <arg name="manager" default="point_cloud_manager"/>
 
     <param name="legged_robot_description" command="$(find xacro)/xacro $(find custom_description)/urdf/robot.xacro
        robot_type:=$(arg robot_type)
@@ -8,11 +7,10 @@
     <node name="generate_urdf" pkg="legged_common" type="generate_urdf.sh" output="screen"
           args="$(find custom_description)/urdf/robot.xacro $(arg robot_type)"/>
 
-    <rosparam file="$(find legged_deployment)/config/$(arg robot_type).yaml" command="load"/>
+    <rosparam file="$(find legged_unitree_hw)/config/$(arg robot_type).yaml" command="load"/>
 
     <param name="robot_type" value="$(arg robot_type)"/>
-    <node name="legged_unitree_hw" pkg="legged_unitree_hw" type="legged_unitree_hw_3_3_1" respawn="false"
-          clear_params="true"/>
+    <include file="$(find legged_unitree_hw)/launch/$(arg robot_type).launch"/>
 
 
        <group ns="front_camera">
@@ -21,15 +19,14 @@
     <!--            <arg name="manager" value="/$(arg manager)"/>-->
     <!--            <arg name="json_file_path" value="$(find legged_perceptive_description)/config/HighAccuracyPreset.json"/>-->
                <arg name="tf_prefix" value="front_camera"/>
-               <!-- <arg name="device_type" value="d435"/> -->
-               <arg name="device_type" value="d455"/>
+               <arg name="device_type" value="d435"/>
                <arg name="reconnect_timeout" value="1"/>
                <arg name="enable_pointcloud" value="true"/>
                <arg name="allow_no_texture_points" value="true"/>
            </include>
        </group>
 
-    <group ns="tracking_camera">
+    <!-- <group ns="tracking_camera">
         <include file="$(find realsense2_camera)/launch/includes/nodelet.launch.xml">
             <arg name="tf_prefix" value="tracking_camera"/>
             <arg name="device_type" value="t265"/>
@@ -40,7 +37,7 @@
         </include>
         <rosparam>tracking_module/enable_relocalization: false</rosparam>
         <rosparam>tracking_module/enable_pose_jumping: false</rosparam>
-    </group>
+    </group> -->
 
 
 </launch>

@@ -6,9 +6,7 @@ robot_pose_cache_size:                      200
 input_sources:
   front: # A name to identify the input source
     type: pointcloud # Supported types: pointcloud
-    # topic: /camera_front/depth/points_downsampled #check camera topic
     topic: /front_camera/depth/color/points
-    # topic: /rs/depth/points
     queue_size: 1
     publish_on_update: true # Wheter to publish the elevation map after a callback from this source.
     sensor_processor:
