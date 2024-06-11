@@ -20,7 +20,7 @@ class CmdPublisher final {
   using CmdToTargetTrajectories = std::function<TargetTrajectories(const vector_t& cmd, const SystemObservation& observation)>;
 
   CmdPublisher(::ros::NodeHandle& nh, const std::string& topicPrefix, CmdToTargetTrajectories goalToTargetTrajectories,
-                              CmdToTargetTrajectories cmdVelToTargetTrajectories)
+                              CmdToTargetTrajectories cmdVelToTargetTrajectories, scalar_t COM_HEIGHT)
       : goalToTargetTrajectories_(std::move(goalToTargetTrajectories)),
         cmdVelToTargetTrajectories_(std::move(cmdVelToTargetTrajectories)),
         tf2_(buffer_) {
@@ -79,7 +79,7 @@ class CmdPublisher final {
       }
     };
 
-    auto modeCallback = [this](const std_msgs::String::ConstPtr& msg) {
+    auto modeCallback = [this, COM_HEIGHT](const std_msgs::String::ConstPtr& msg) {
 
       mode = msg->data;
       const vector_t currentPose = latestObservation_.state.segment<6>(6);
@@ -110,7 +110,7 @@ class CmdPublisher final {
         gaitpublisher.publish(gait);
         cmdGoal[0] = currentPose[0];
         cmdGoal[1] = currentPose[1];
-        cmdGoal[2] = 0.3;
+        cmdGoal[2] = COM_HEIGHT;
         cmdGoal[3] = currentPose[3];
         const auto trajectories =
             goalToTargetTrajectories_(cmdGoal, latestObservation_);
