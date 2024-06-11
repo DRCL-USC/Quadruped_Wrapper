@@ -87,7 +87,7 @@
 
     <xacro:sensor_d435 name="front_camera" topics_ns="$(arg ns)/front_camera" parent="base"
         sim="$(arg sim)">
-        <origin xyz="0.16 0.048 0.30" rpy="0 0.54359877559 0" />
+        <origin xyz="0.22 0.0 0.05" rpy="0 0.21 0" />
     </xacro:sensor_d435>
 
     <!-- ros_control plugin -->
