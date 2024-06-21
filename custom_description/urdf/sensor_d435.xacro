@@ -68,7 +68,7 @@
             </inertial>
         </link>
 
-        <xacro:if value="$(arg sim)">
+        <xacro:if value="${sim}">
             <!-- camera depth joints and links -->
             <joint name="${name}_depth_joint" type="fixed">
                 <origin xyz="0 0 0" rpy="0 0 0"/>
