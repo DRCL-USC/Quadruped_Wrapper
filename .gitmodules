@@ -1,0 +1,39 @@
+[submodule "submodules/legged_control"]
+	path = submodules/legged_control
+	url = https://github.com/qiayuanl/legged_control
+[submodule "submodules/legged_perceptive"]
+	path = submodules/legged_perceptive
+	url = https://github.com/qiayuanl/legged_perceptive
+[submodule "submodules/ocs2"]
+	path = submodules/ocs2
+	url = https://github.com/leggedrobotics/ocs2
+[submodule "submodules/elevation_mapping"]
+	path = submodules/elevation_mapping
+	url = https://github.com/ANYbotics/elevation_mapping
+[submodule "submodules/elevation_mapping_cupy"]
+	path = submodules/elevation_mapping_cupy
+	url = https://github.com/leggedrobotics/elevation_mapping_cupy
+[submodule "submodules/grid_map"]
+	path = submodules/grid_map
+	url = https://github.com/ANYbotics/grid_map
+[submodule "submodules/kindr"]
+	path = submodules/kindr
+	url = https://github.com/ANYbotics/kindr
+[submodule "submodules/kindr_ros"]
+	path = submodules/kindr_ros
+	url = https://github.com/ANYbotics/kindr_ros
+[submodule "submodules/message_logger"]
+	path = submodules/message_logger
+	url = https://github.com/ANYbotics/message_logger
+[submodule "submodules/realsense_gazebo_plugin"]
+	path = submodules/realsense_gazebo_plugin
+	url = https://github.com/pal-robotics/realsense_gazebo_plugin
+[submodule "submodules/ocs2_robotic_assets"]
+	path = submodules/ocs2_robotic_assets
+	url = https://github.com/leggedrobotics/ocs2_robotic_assets.git
+[submodule "submodules/pinocchio"]
+	path = submodules/pinocchio
+	url = https://github.com/leggedrobotics/pinocchio.git
+[submodule "submodules/hpp-fcl"]
+	path = submodules/hpp-fcl
+	url = https://github.com/leggedrobotics/hpp-fcl.git
