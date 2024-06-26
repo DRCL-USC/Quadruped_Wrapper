@@ -1,0 +1,16 @@
+session_name: Controller
+windows:
+  - layout: tiled
+    panes:
+      - shell_command:
+        - roslaunch legged_deployment cameras.launch
+      - shell_command:
+        - sleep 11
+        - roslaunch legged_deployment elevation_mapping_hardware.launch rviz:=false
+    shell_command_before:
+      - cd ~/Projects/ocs2_ws/
+      - source devel/setup.bash 
+      - export ROBOT_TYPE=a1
+      - export ROS_MASTER_URI=http://192.168.123.5:11311
+      - export ROS_IP=192.168.123.3
+    window_name: Controller
