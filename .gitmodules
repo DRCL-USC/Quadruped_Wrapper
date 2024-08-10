@@ -37,3 +37,6 @@
 [submodule "third_party/hpp-fcl"]
 	path = third_party/hpp-fcl
 	url = https://github.com/leggedrobotics/hpp-fcl.git
+[submodule "third_party/point_cloud_io"]
+	path = third_party/point_cloud_io
+	url = https://github.com/ANYbotics/point_cloud_io.git
