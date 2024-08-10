@@ -1,0 +1,40 @@
+<launch>
+  <arg name="rviz" default="false" />
+  <arg name="rviz_config" default="$(find legged_deployment)/config/rviz.rviz" />
+  <arg name="world_name" default="stairs_stepping_stone" />
+
+  <!-- rviz -->
+  <group if="$(arg rviz)">
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(arg rviz_config)" output="screen" />
+  </group>
+
+  <node pkg="point_cloud_io" type="read" name="read_ply" output="screen">
+    <param name="file_path"
+      value="$(find legged_deployment)/sample_data/$(arg world_name).pcd" />
+    <param name="topic" value="/points" />
+    <param name="frame" value="map" />
+    <param name="rate" value="1.0" />
+  </node>
+
+  <node pkg="elevation_mapping" type="elevation_mapping" name="elevation_mapping" output="screen">
+    <rosparam command="load"
+      file="$(find legged_deployment)/config/elevation_mapping_fixed.yaml" />
+    <rosparam command="load"
+      file="$(find elevation_mapping_demos)/config/postprocessing/postprocessor_pipeline.yaml" />
+  </node>
+
+  <!-- Static transform map to odom. x y z yaw pitch roll frame_id child_frame_id -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="map2odom_broadcaster"
+    args="0.0 0.0 0.0 0.0 0.0 0.0 map odom" />
+    
+  <!-- Launch the plane decomposition node. -->
+  <include file="$(find convex_plane_decomposition_ros)/launch/convex_plane_decomposition.launch">
+    <arg name="parameter_file"
+      value="$(find legged_perceptive_controllers)/config/convex_plane_decomposition.yaml" />
+    <arg name="node_parameter_file"
+      value="$(find legged_deployment)/config/convex_plane_decomposition_node.yaml" />
+  </include>
+
+  
+
+</launch>

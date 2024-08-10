@@ -3,7 +3,7 @@ windows:
   - layout: tiled
     panes:
       - shell_command:
-        - roslaunch custom_description gazebo_world.launch wname:=stepping_stone gui:=true
+        - roslaunch custom_description gazebo_world.launch wname:=stairs_stepping_stone gui:=true
       - shell_command:
         - sleep 5
         - roslaunch legged_deployment load_controller.launch
@@ -17,7 +17,7 @@ windows:
         - sleep 12
         - rosrun teleop_twist_keyboard teleop_twist_keyboard.py
     shell_command_before:
-      - cd ~/Projects/ocs2_ws/
-      - source devel/setup.bash 
-      - export ROBOT_TYPE=a1
+      - source /opt/ros/noetic/setup.bash 
+      - source ~/Projects/ocs2_ws/devel/setup.bash 
+      - export ROBOT_TYPE=aliengo
     window_name: Controller

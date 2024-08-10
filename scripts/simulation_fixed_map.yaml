@@ -1,0 +1,24 @@
+session_name: Controller
+windows:
+  - layout: tiled
+    panes:
+      - shell_command:
+        - roslaunch custom_description gazebo_world.launch wname:=$world_name gui:=false
+      - shell_command:
+        - sleep 5
+        - roslaunch legged_deployment load_controller.launch
+      - shell_command:
+        - sleep 8
+        - rosrun legged_deployment controller_client_node perceptive_controller start
+      - shell_command:
+        - sleep 10
+        - roslaunch legged_deployment elevation_mapping_fixed.launch rviz:=true world_name:=$world_name
+      - shell_command:
+        - sleep 12
+        - rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+    shell_command_before:
+      - source /opt/ros/noetic/setup.bash 
+      - source ~/Projects/ocs2_ws/devel/setup.bash 
+      - export ROBOT_TYPE=aliengo
+      - export world_name=stairs_stepping_stone
+    window_name: Controller

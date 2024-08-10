@@ -1,0 +1,42 @@
+<launch>
+  <arg name="rviz" default="false" />
+  <arg name="rviz_config" default="$(find legged_deployment)/config/rviz.rviz" />
+  <arg name="datafile" default="stairs_stepping_stone.png" />
+  <arg name="max_height" default="0.6" />
+
+  <!-- rviz -->
+  <group if="$(arg rviz)">
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(arg rviz_config)" output="screen" />
+  </group>
+
+  <!-- Load the image. -->
+  <node pkg="grid_map_demos" type="image_publisher.py" name="image_publisher" output="screen">
+    <param name="image_path" value="$(find legged_deployment)/sample_data/$(arg datafile)" />
+    <param name="topic" value="/image" />
+  </node>
+
+  <!-- Launch the grid map image to grid map demo node. -->
+  <node pkg="grid_map_demos" type="image_to_gridmap_demo" name="image_to_gridmap_demo"
+    output="screen">
+    <param name="image_topic" value="/image" />
+    <param name="min_height" value="0.0" />
+    <param name="max_height" value="$(arg max_height)" />
+    <param name="resolution" value="0.01" />
+    <remap>
+      <remap from="grid_map" to="/elevation_mapping/elevation_map_raw" />
+    </remap>
+  </node>
+
+  <!-- Static transform map to odom. x y z yaw pitch roll frame_id child_frame_id -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="map2odom_broadcaster"
+    args="-5.5 0.0 0.0 0.0 0.0 0.0 map odom" />
+
+  <!-- Launch the plane decomposition node. -->
+  <include file="$(find convex_plane_decomposition_ros)/launch/convex_plane_decomposition.launch">
+    <arg name="parameter_file"
+      value="$(find legged_perceptive_controllers)/config/convex_plane_decomposition.yaml" />
+    <arg name="node_parameter_file"
+      value="$(find legged_deployment)/config/convex_plane_decomposition_node.yaml" />
+  </include>
+
+</launch>
