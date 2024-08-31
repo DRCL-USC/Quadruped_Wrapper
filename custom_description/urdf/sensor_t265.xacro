@@ -46,9 +46,9 @@
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
-                <!-- <geometry>
-                    <mesh filename="package://realsense2_description/meshes/t265.stl"/>
-                </geometry> -->
+                <geometry>
+                    <box size="0.01 0.01 0.01" />
+                </geometry>
             </collision>
             <inertial>
                 <!-- The following are not reliable values, and should not be used for modeling -->
