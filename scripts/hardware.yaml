@@ -11,13 +11,12 @@ windows:
         - sleep 10
         - rosrun legged_deployment controller_client_node perceptive_controller start
       - shell_command:
-        - sleep 11
-        - roslaunch legged_deployment elevation_mapping_hardware.launch rviz:=true
+        - sleep 10
+        - roslaunch legged_deployment elevation_mapping_fixed.launch rviz:=true world_name:=step
       - shell_command:
         - sleep 12
         - rosrun teleop_twist_keyboard teleop_twist_keyboard.py
     shell_command_before:
-      - cd ~/Projects/ocs2_ws/
-      - source devel/setup.bash 
+      - source ~/Projects/ocs2_ws/devel/setup.bash 
       - export ROBOT_TYPE=a1
     window_name: Controller

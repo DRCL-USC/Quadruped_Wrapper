@@ -19,6 +19,6 @@ windows:
     shell_command_before:
       - source /opt/ros/noetic/setup.bash 
       - source ~/Projects/ocs2_ws/devel/setup.bash 
-      - export ROBOT_TYPE=aliengo
-      - export world_name=stairs_stepping_stone
+      - export ROBOT_TYPE=a1
+      - export world_name=step
     window_name: Controller

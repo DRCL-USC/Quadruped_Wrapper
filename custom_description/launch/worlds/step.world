@@ -21,13 +21,13 @@
 
         <model name='box0'>
           <static>true</static>
-            <pose frame=''>0 0.0 0.05 0 -0 0</pose>
+            <pose frame=''>0 0.0 0.25 0 -0 0</pose>
             <link name='box'>
               <visual name='Stairs_1_Visual_0'>
                 <pose frame=''>-0 0 0 0 -0 0</pose>
                 <geometry>
                   <box>
-                    <size>1.6 1 0.1</size>
+                    <size>1.2 1 0.5</size>
                   </box>
                 </geometry>
                 <material>
@@ -41,7 +41,7 @@
               <collision name='Stairs_1_Collision_0'>
                 <geometry>
                   <box>
-                    <size>1.6 1 0.1</size>
+                    <size>1.2 1 0.5</size>
                   </box>
                 </geometry>
                 <surface>
@@ -57,43 +57,81 @@
             </link>
           </model>
 
-        <model name='box'>
-          <static>true</static>
-            <pose frame=''>1.5 0.0 0.05 0 -0 0</pose>
-            <link name='box'>
-              <visual name='Stairs_1_Visual_0'>
-                <pose frame=''>-0 0 0 0 -0 0</pose>
-                <geometry>
-                  <box>
-                    <size>1 1 0.1</size>
-                  </box>
-                </geometry>
-                <material>
-                  <script>
-                    <uri>file://media/materials/scripts/gazebo.material</uri>
-                    <name>Gazebo/Wood</name>
-                  </script>
-                  <ambient>1 1 1 1</ambient>
-                </material>
-              </visual>
-              <collision name='Stairs_1_Collision_0'>
-                <geometry>
-                  <box>
-                    <size>1 1 0.1</size>
-                  </box>
-                </geometry>
-                <surface>
-                    <friction>
-                      <ode>
-                        <mu>10</mu>
-                        <mu2>10</mu2>
-                      </ode>
-                    </friction >
-                  </surface>
-                <pose frame=''>0 0 0 0 0 0</pose>
-              </collision>
-            </link>
-          </model>
+          <model name='box1'>
+            <static>true</static>
+              <pose frame=''>1.25 0.0 0.25 0 -0 0</pose>
+              <link name='box'>
+                <visual name='Stairs_1_Visual_0'>
+                  <pose frame=''>-0 0 0 0 -0 0</pose>
+                  <geometry>
+                    <box>
+                      <size>1.2 1 0.5</size>
+                    </box>
+                  </geometry>
+                  <material>
+                    <script>
+                      <uri>file://media/materials/scripts/gazebo.material</uri>
+                      <name>Gazebo/Wood</name>
+                    </script>
+                    <ambient>1 1 1 1</ambient>
+                  </material>
+                </visual>
+                <collision name='Stairs_1_Collision_0'>
+                  <geometry>
+                    <box>
+                      <size>1.2 1 0.5</size>
+                    </box>
+                  </geometry>
+                  <surface>
+                      <friction>
+                        <ode>
+                          <mu>10</mu>
+                          <mu2>10</mu2>
+                        </ode>
+                      </friction >
+                    </surface>
+                  <pose frame=''>0 0 0 0 0 0</pose>
+                </collision>
+              </link>
+            </model>
+
+            <model name='box2'>
+              <static>true</static>
+                <pose frame=''>2.5 0.0 0.25 0 -0 0</pose>
+                <link name='box'>
+                  <visual name='Stairs_1_Visual_0'>
+                    <pose frame=''>-0 0 0 0 -0 0</pose>
+                    <geometry>
+                      <box>
+                        <size>1.2 1 0.5</size>
+                      </box>
+                    </geometry>
+                    <material>
+                      <script>
+                        <uri>file://media/materials/scripts/gazebo.material</uri>
+                        <name>Gazebo/Wood</name>
+                      </script>
+                      <ambient>1 1 1 1</ambient>
+                    </material>
+                  </visual>
+                  <collision name='Stairs_1_Collision_0'>
+                    <geometry>
+                      <box>
+                        <size>1.2 1 0.5</size>
+                      </box>
+                    </geometry>
+                    <surface>
+                        <friction>
+                          <ode>
+                            <mu>10</mu>
+                            <mu2>10</mu2>
+                          </ode>
+                        </friction >
+                      </surface>
+                    <pose frame=''>0 0 0 0 0 0</pose>
+                  </collision>
+                </link>
+              </model>
 
     </world>
 </sdf>
