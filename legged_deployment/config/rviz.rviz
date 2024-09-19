@@ -7,7 +7,7 @@ Panels:
         - /TF1/Frames1
         - /Elevation Map1
       Splitter Ratio: 0.5
-    Tree Height: 754
+    Tree Height: 639
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -32,7 +32,7 @@ Panels:
     Property Tree Widget:
       Expanded: ~
       Splitter Ratio: 0.8294117450714111
-    Tree Height: 303
+    Tree Height: 270
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -82,7 +82,7 @@ Visualization Manager:
       Color Layer: uncertainty_range
       Color Transformer: None
       ColorMap: default
-      Enabled: true
+      Enabled: false
       Grid Cell Decimation: 1
       Grid Line Thickness: 0.029999999329447746
       Height Layer: elevation
@@ -98,7 +98,7 @@ Visualization Manager:
       Topic: elevation_mapping/elevation_map
       Unreliable: false
       Use ColorMap: true
-      Value: true
+      Value: false
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
@@ -108,175 +108,7 @@ Visualization Manager:
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
-        LF_FOOT:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        LF_calf:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        LF_hip:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        LF_thigh:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        LH_FOOT:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        LH_calf:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        LH_hip:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        LH_thigh:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         Link Tree Style: Links in Alphabetic Order
-        RF_FOOT:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RF_calf:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RF_hip:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RF_thigh:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RH_FOOT:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RH_calf:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RH_hip:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RH_thigh:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        base_imu:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        front_camera_bottom_screw_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        front_camera_color_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        front_camera_color_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        front_camera_depth_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        front_camera_depth_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        front_camera_left_ir_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        front_camera_left_ir_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        front_camera_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        front_camera_right_ir_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        front_camera_right_ir_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        payload:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        tracking_camera_accel_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        tracking_camera_fisheye1_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        tracking_camera_fisheye1_rgb_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        tracking_camera_fisheye2_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        tracking_camera_fisheye2_rgb_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        tracking_camera_gyro_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        tracking_camera_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        tracking_camera_pose_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
       Name: RobotModel
       Robot Description: legged_robot_description
       TF Prefix: ""
@@ -288,9 +120,7 @@ Visualization Manager:
       Marker Topic: legged_robot/optimizedStateTrajectory
       Name: Optimized State Trajectory
       Namespaces:
-        CoM Trajectory: true
-        EE Trajectories: true
-        Future footholds: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
@@ -298,10 +128,7 @@ Visualization Manager:
       Marker Topic: legged_robot/currentState
       Name: Current State
       Namespaces:
-        Center of Pressure: true
-        EE Forces: true
-        EE Positions: true
-        Support Polygon: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
@@ -309,9 +136,7 @@ Visualization Manager:
       Marker Topic: foot_placement
       Name: FootPlacement
       Namespaces:
-        Convex Regions: true
-        Nominal Footholds: true
-        Projections: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
@@ -319,7 +144,7 @@ Visualization Manager:
       Marker Topic: convex_plane_decomposition_ros/boundaries
       Name: MarkerArray
       Namespaces:
-        "": true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/Group
@@ -365,7 +190,7 @@ Visualization Manager:
           Marker Topic: legged_robot/desiredBaseTrajectory
           Name: Target Base Trajectory
           Namespaces:
-            "": true
+            {}
           Queue Size: 100
           Value: true
       Enabled: true
@@ -422,7 +247,7 @@ Window Geometry:
   Height: 1043
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd000000040000000000000156000003b9fc020000000afb0000001200530065006c0065006300740069006f006e000000006e000000b00000005c00fffffffb0000001e0054006f006f006c002000500072006f0070006500720074006900650073000000006e000004770000005c00fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d000003b9000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00430061006d00650072006101000001be000001900000000000000000fb000000100044006900730070006c006100790073000000006e00000247000000c900ffffff000000010000010f000002e2fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000002e2000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000006400000003efc0100000002fb0000000800540069006d00650000000000000006400000041800fffffffb0000000800540069006d0065010000000000000450000000000000000000000624000003b900000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001f700000377fc020000000afb0000001200530065006c0065006300740069006f006e000000006e000000b0000000b000fffffffb0000001e0054006f006f006c002000500072006f0070006500720074006900650073000000006e00000477000000b000fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000006e000003770000018200fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00430061006d00650072006101000001be000001900000000000000000fb000000100044006900730070006c006100790073000000006e000002470000018200ffffff000000010000010f000002e2fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000002e20000013200fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000006400000003efc0100000002fb0000000800540069006d00650000000000000006400000077d00fffffffb0000000800540069006d006501000000000000045000000000000000000000057d0000037700000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -432,5 +257,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1920
-  X: 0
-  Y: 0
+  X: 144
+  Y: 54

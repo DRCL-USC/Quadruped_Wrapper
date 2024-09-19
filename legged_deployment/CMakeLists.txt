@@ -88,6 +88,17 @@ add_executable(CmdPublisher
 target_link_libraries(CmdPublisher
         ${catkin_LIBRARIES}
         )
+
+# Bagfile node
+add_executable(bagfile_recorder
+  src/bagfile_recorder.cpp
+)
+add_dependencies(bagfile_recorder
+  ${catkin_EXPORTED_TARGETS}
+)
+target_link_libraries(bagfile_recorder
+  ${catkin_LIBRARIES}
+)        
         
 #########################
 ###   CLANG TOOLING   ###

@@ -6,13 +6,13 @@
             server: $(arg server)
             port: 3883
             frame_id: map
-            broadcast_tf: true
+            broadcast_tf: false
             refresh_tracker_frequency: 1.0
             update_frequency: $(arg freq)
         </rosparam>
     </node>
 
     <node pkg="tf2_ros" type="static_transform_publisher" name="odom_tf_publisher"
-          args="0.1 0 0 0 0 0 1 A1_new odom"/> 
+          args="0.1 0 0.18 0 0 0 base a1"/> 
 
 </launch>
