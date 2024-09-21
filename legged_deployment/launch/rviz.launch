@@ -1,0 +1,15 @@
+<launch>
+  
+  <arg name="rviz_config" default="$(find legged_deployment)/config/rviz.rviz" />
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="odom_tf_publisher"
+    args="0 0 0 0 0 0 1 map odom" />
+
+  <param name="legged_robot_description"
+    command="$(find xacro)/xacro $(find custom_description)/urdf/robot.xacro 
+             robot_type:=aliengo sim:=true" />
+
+
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(arg rviz_config)" output="screen" />
+
+</launch>
