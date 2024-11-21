@@ -14,9 +14,6 @@
 
        <group ns="front_camera">
            <include file="$(find realsense2_camera)/launch/includes/nodelet.launch.xml">
-    <!--            <arg name="external_manager" value="true"/>-->
-    <!--            <arg name="manager" value="/$(arg manager)"/>-->
-    <!--            <arg name="json_file_path" value="$(find legged_perceptive_description)/config/HighAccuracyPreset.json"/>-->
                <arg name="tf_prefix" value="front_camera"/>
                <arg name="device_type" value="d435"/>
                <arg name="reconnect_timeout" value="1"/>

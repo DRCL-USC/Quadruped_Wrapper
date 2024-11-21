@@ -3,21 +3,20 @@ windows:
   - layout: tiled
     panes:
       - shell_command:
-        - roslaunch custom_description gazebo_world.launch wname:=stairs_stepping_stone gui:=true
+        - roslaunch custom_description unitree_hw.launch
       - shell_command:
         - sleep 5
         - roslaunch legged_deployment load_controller.launch
       - shell_command:
-        - sleep 8
+        - sleep 10
         - rosrun legged_deployment controller_client_node perceptive_controller start
       - shell_command:
-        - sleep 10
-        - roslaunch legged_deployment elevation_mapping.launch rviz:=true
+        - sleep 11
+        - roslaunch legged_deployment elevation_mapping_hardware.launch rviz:=true
       - shell_command:
         - sleep 12
         - rosrun teleop_twist_keyboard teleop_twist_keyboard.py
     shell_command_before:
-      - source /opt/ros/noetic/setup.bash 
-      - source ~/Projects/ocs2_ws/devel/setup.bash 
+      - source $PWD/../../../devel/setup.bash 
       - export ROBOT_TYPE=aliengo
     window_name: Controller

@@ -3,23 +3,17 @@ windows:
   - layout: tiled
     panes:
       - shell_command:
-        - roslaunch custom_description unitree_hw_only.launch
+        - roslaunch custom_description gazebo_world.launch wname:=empty_world gui:=true
       - shell_command:
         - sleep 5
         - roslaunch legged_deployment load_controller.launch
       - shell_command:
-        - sleep 10
+        - sleep 8
         - rosrun legged_deployment controller_client_node legged_controller start
       - shell_command:
         - sleep 11
-        - rosrun rviz rviz -d `rospack find legged_deployment`/config/rviz.rviz
-      - shell_command:
-        - sleep 12
         - rosrun teleop_twist_keyboard teleop_twist_keyboard.py
     shell_command_before:
-      - cd ~/Projects/ocs2_ws/
-      - source devel/setup.bash 
-      - export ROBOT_TYPE=a1
-      - export ROS_MASTER_URI=http://192.168.123.5:11311
-      - export ROS_IP=192.168.123.5
+      - source $PWD/../../../devel/setup.bash 
+      - export ROBOT_TYPE=aliengo
     window_name: Controller
