@@ -94,7 +94,7 @@ sudo apt-get install tmux tmuxp
 
 Next, navigate to the scripts directory and load the Tmux session:
 ```
-cd scripts
+cd src/Quadruped_Wrapper/scripts
 tmuxp load simulation_with_perception.yaml
 ```
 You can modify the Tmux scripts based on your specifications.
