@@ -4,7 +4,7 @@ This repository offers a wrapper for a nonlinear Model Predictive Control (MPC) 
 # Installation
 ## Prerequisites
 
-The library is written in C++11 and has been tested on Ubuntu 20.04 with the library versions available in the package sources.
+The library is written in C++11 and tested on Ubuntu 20.04 with the library versions available in the package sources.
 
 ## Dependencies
 * A C++ compiler with C++11 support
@@ -38,7 +38,7 @@ Clone the code:
 cd <directory_to_ws>/<catkin_ws_name>/src
 
 # Clone the repo:
-git clone --depth 1 --recurse-submodules
+git clone --depth 1 --recurse-submodules https://github.com/DRCL-USC/Quadruped_Wrapper.git
 ```
 Build the package (simulation and hardware):
 ```
@@ -87,7 +87,7 @@ roslaunch custom_description unitree_hw.launch
 The remaining steps, including loading and running the controller, are the same as for the simulation.
 
 ## Using Tmux Script 
-Multiple Tmux scripts located in the `scripts` directory automate the process of running the simulation or hardware as explained above. To use these scripts, first install:
+Multiple Tmux scripts located in the `scripts` directory automate the process of running the simulation or hardware, as explained above. To use these scripts, first install:
 ```
 sudo apt-get install tmux tmuxp
 ```
